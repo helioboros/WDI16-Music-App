@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
 import styled from 'styled-components'
+import NewSongForm from './NewSongForm'
 
 const AllBoxes = styled.div`
     display: flex;
@@ -40,11 +41,38 @@ class SoloUser extends Component {
             console.error(error)
         }
     }
+
+    // createSong = () => {
+    //     try {
+    //         const userId = this.props.match.params.id
+    //         await axios.post(`/api/users/${userId}/songs`)
+    //         await this.fetchUserAndSongs()
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+    toggleShowNewForm = () => {
+        this.setState({ showNewForm: !this.state.showNewForm })
+    }
+    handleChange = (event) => {
+        const inputName = event.target.name
+        const songInput = event.target.value
+        this.setState({
+            [inputName]: songInput
+        })
+    }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const userId = this.props.match.params.id
+        axios.post(`/api/users/${userId}/songs/`, this.state).then((res) => {
+            this.props.history.push(`/users/${userId}/songs/${res.data._id}`)
+        })
+    }
+
     deleteSong = async (songId) => {
         try {
             const userId = this.props.match.params.id
             await axios.delete(`/api/users/${userId}/songs/${songId}`)
-
             await this.fetchUserAndSongs()
         } catch (error) {
             console.log(error)
@@ -73,6 +101,10 @@ class SoloUser extends Component {
             <div>
                 <h1>{this.state.user.name}</h1>
                 <img width={200} src={this.state.user.photo_url} alt={this.state.user.name} />
+                <div className="button">
+                    <button onClick={this.toggleShowNewForm}>Create New</button>
+                    {this.state.showNewForm ? <NewSongForm fetchUserAndSongs={this.fetchUserAndSongs} /> : null}
+                </div>
                 <p>{this.state.user.bio}</p>
                 <AllBoxes>{songsList}</AllBoxes>
             </div>
