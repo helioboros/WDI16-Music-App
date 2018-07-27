@@ -41,7 +41,7 @@ class SoloUser extends Component {
             console.error(error)
         }
     }
-
+    // fuck man idk
     // createSong = () => {
     //     try {
     //         const userId = this.props.match.params.id

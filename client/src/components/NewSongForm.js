@@ -25,12 +25,16 @@ class NewSongForm extends Component {
     handleSubmit = async (event) => {
         const userId = this.props.match.params.id
         event.preventDefault()
-        const payload = {
-            title: this.state.title,
-            song_url: this.state.song_url
+        try {
+            const payload = {
+                title: this.state.title,
+                song_url: this.state.song_url
+            }
+            await axios.post(`/api/users/${userId}/songs/`, payload)
+        } catch (error) {
+            console.log(error)
         }
-        await axios.post(`/api/users/${userId}/songs`, payload)
-        await this.fetchUserAndSongs()
+        // await this.fetchUserAndSongs()
     }
 
     render() {
