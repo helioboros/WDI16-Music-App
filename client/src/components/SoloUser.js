@@ -31,9 +31,13 @@ class SoloUser extends Component {
     render() {
         const songsList = this.state.songs.map((song) => {
             return (
-                <div>
+                <div className='player-wrapper'>
                     <h4>{song.title}</h4>
-                    <ReactPlayer url={song.song_url} />
+                    <ReactPlayer
+                        className='react-player'
+                        url={song.song_url}
+                        width='30%'
+                        height='10%' />
                 </div>
             )
         })
