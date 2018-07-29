@@ -23,8 +23,9 @@ class NewSongForm extends Component {
         this.setState(newState)
     }
     handleSubmit = async (event) => {
-        const userId = this.props.match.params.id
         event.preventDefault()
+        //props don't include 'match'. make sure its being passed down.
+        const userId = this.props.match.params.id
         try {
             const payload = {
                 title: this.state.title,
