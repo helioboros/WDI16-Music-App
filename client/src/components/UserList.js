@@ -34,6 +34,31 @@ class UserList extends Component {
       })
   }
 
+  toggleShowNewForm = () => {
+    this.setState({ showNewForm: !this.state.showNewForm })
+  }
+  handleChange = (event) => {
+    const inputName = event.target.name
+    const userInput = event.target.value
+    this.setState({
+      [inputName]: userInput
+    })
+  }
+  handleSubmit = (event) => {
+    event.preventDefault()
+    axios.post('/api/users', this.state).then((res) => {
+      this.props.history.push(`/users/${res.data._id}`)
+    })
+  }
+  // deleteUser = (userId) => {
+  //   axios.delete(`/api/users/${userId}`).then((res) => {
+  //     this.setState({
+  //       user: res.data.user
+  //     })
+  //   })
+  //   this.fetchUsers()
+  // }
+
   render() {
     const usersList = this.state.users.map((user) => {
       return (
