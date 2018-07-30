@@ -50,19 +50,22 @@ class UserList extends Component {
       this.props.history.push(`/users/${res.data._id}`)
     })
   }
-  // deleteUser = (userId) => {
-  //   axios.delete(`/api/users/${userId}`).then((res) => {
-  //     this.setState({
-  //       user: res.data.user
-  //     })
-  //   })
-  //   this.fetchUsers()
-  // }
+  deleteUser = (userId) => {
+    axios.delete(`/api/users/${userId}`).then((res) => {
+      this.setState({
+        users: res.data.users
+      })
+    })
+    this.fetchUsers()
+  }
 
   render() {
     const usersList = this.state.users.map((user) => {
       return (
         <UserCard key={user.id}>
+          <div className="button" onClick={() => this.deleteUser(user.id)}>
+            <button>delete</button>
+          </div>
           <UserCardName>
             <Link to={`/users/${user.id}`}>{user.name}</Link>
           </UserCardName>

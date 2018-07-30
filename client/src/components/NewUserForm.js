@@ -26,6 +26,7 @@ class NewUserForm extends Component {
         event.preventDefault()
         const payload = {
             name: this.state.name,
+            photo_url: this.state.photo_url,
             bio: this.state.bio
         }
         await axios.post('/api/users', payload)
@@ -39,6 +40,10 @@ class NewUserForm extends Component {
                     <div>
                         <label htmlFor="name">Name: </label>
                         <input onChange={this.handleChange} type="text" name="name" value={this.state.name} />
+                    </div>
+                    <div>
+                        <label htmlFor="photo_url">Photo URL: </label>
+                        <input onChange={this.handleChange} type="text" name="photo_url" value={this.state.photo_url} />
                     </div>
                     <div>
                         <label htmlFor="bio">bio: </label>
