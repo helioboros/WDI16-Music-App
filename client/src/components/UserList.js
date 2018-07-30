@@ -52,11 +52,12 @@ class UserList extends Component {
   }
   deleteUser = (userId) => {
     axios.delete(`/api/users/${userId}`).then((res) => {
-      this.setState({
-        users: res.data.users
-      })
+      // this.setState({
+      //   user: res.data.user,
+      // })
+      this.fetchUsers()
     })
-    this.fetchUsers()
+    // this.fetchUsers()
   }
 
   render() {
