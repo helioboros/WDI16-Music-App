@@ -13,6 +13,7 @@ const UserForm = styled.div`
 class NewUserForm extends Component {
     state = {
         name: "",
+        photo_url: "",
         bio: ""
     }
 
