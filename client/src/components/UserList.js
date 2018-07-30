@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import NewUserForm from './NewUserForm'
 
 const UserHeader = styled.h1`
   background-color: salmon;
@@ -52,6 +53,10 @@ class UserList extends Component {
         <UserHeader>
           User Index
         </UserHeader>
+        <div className="button">
+          <button onClick={this.toggleShowNewForm}>Create New</button>
+          {this.state.showNewForm ? <NewUserForm fetchUsers={this.fetchUsers} /> : null}
+        </div>
         <div>
           {usersList}
         </div>
