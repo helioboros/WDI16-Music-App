@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-class EditUser extends Component {
-    render() {
-        return (
-            <div>
+// class EditUser extends Component {
+//     handleUserChange
+//     render() {
+//         return (
+//             <div>
                 
-            </div>
-        );
-    }
-}
+//             </div>
+//         );
+//     }
+// }
 
-export default EditUser;
+// export default EditUser;

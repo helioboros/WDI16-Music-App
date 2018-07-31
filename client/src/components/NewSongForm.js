@@ -1,14 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import styled from 'styled-components'
-
-const SongForm = styled.div`
-    background: #1B998B;
-    border: 2px solid #2D3047;
-    border-radius: 5%;
-    max-width: 300px;
-    color: #FFFD82;
-`
 
 class NewSongForm extends Component {
     state = {
@@ -40,7 +31,7 @@ class NewSongForm extends Component {
 
     render() {
         return (
-            <SongForm>
+            <div className = 'newForm'>
                 <form onSubmit={this.handleSongSubmit}>
                     <div>
                         <label htmlFor="title">Title: </label>
@@ -52,7 +43,7 @@ class NewSongForm extends Component {
                     </div>
                     <button>Submit</button>
                 </form>
-            </SongForm>
+            </div>
         )
     }
 }

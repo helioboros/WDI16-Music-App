@@ -1,14 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import styled from 'styled-components'
-
-const UserForm = styled.div`
-    background: #1B998B;
-    border: 2px solid #2D3047;
-    border-radius: 5%;
-    max-width: 300px;
-    color: #FFFD82;
-`
 
 class NewUserForm extends Component {
     state = {
@@ -36,7 +27,7 @@ class NewUserForm extends Component {
 
     render() {
         return (
-            <UserForm>
+            <div className = 'newForm'>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name: </label>
@@ -52,7 +43,7 @@ class NewUserForm extends Component {
                     </div>
                     <button>Submit</button>
                 </form>
-            </UserForm>
+            </div>
         )
     }
 }

@@ -83,25 +83,27 @@ class SoloUser extends Component {
     render() {
         const songsList = this.state.songs.map((song) => {
             return (
-                <Box className='player-wrapper'>
+                <div className='card'>
                     <h4>{song.title}</h4>
-                    {/* <ReactPlayer
+                    <ReactPlayer
                         className='react-player'
                         url={song.song_url}
                         width='50%'
                         height='50%' />
-                        <button onClick={() =>this.deleteSong()}>Delete</button> */}
+                    <button onClick={() => this.deleteSong()}>Delete</button>
                     <div className="button" onClick={() => this.deleteSong(song.id)}>
                         <button>X</button>
                     </div>
-                </Box>
+                </div>
             )
         })
 
         return (
             <div>
-                <h1>{this.state.user.name}</h1>
-                <img width={200} src={this.state.user.photo_url} alt={this.state.user.name} />
+                <div className = 'header'>
+                    <h1>{this.state.user.name}</h1>
+                    <img width={200} src={this.state.user.photo_url} alt={this.state.user.name} />
+                </div>
                 {/* <div className="button">
                     <button onClick={this.toggleEditUserForm}>Edit User</button>
                     {this.state.editUserForm ? <EditUser /> : null}
@@ -111,7 +113,7 @@ class SoloUser extends Component {
                     {this.state.showNewForm ? <NewSongForm fetchUserAndSongs={this.fetchUserAndSongs} /> : null}
                 </div>
                 <p>{this.state.user.bio}</p>
-                <AllBoxes>{songsList}</AllBoxes>
+                <div classname='contentList'>{songsList}</div>
             </div>
         )
     }
