@@ -1,19 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 import NewUserForm from './NewUserForm'
-
-const UserHeader = styled.h1`
-  background-color: salmon;
-`
-
-const UserCard = styled.div`
-`
-const UserCardName = styled.div`
-`
-const UserCardImage = styled.div`
-`
 
 class UserList extends Component {
   state = {
@@ -52,41 +40,37 @@ class UserList extends Component {
   }
   deleteUser = (userId) => {
     axios.delete(`/api/users/${userId}`).then((res) => {
-      // this.setState({
-      //   user: res.data.user,
-      // })
       this.fetchUsers()
     })
-    // this.fetchUsers()
   }
 
   render() {
     const usersList = this.state.users.map((user) => {
       return (
-        <UserCard key={user.id}>
+        <div className='card' key={user.id}>
           <div className="button" onClick={() => this.deleteUser(user.id)}>
             <button>delete</button>
           </div>
-          <UserCardName>
+          <div>
             <Link to={`/users/${user.id}`}>{user.name}</Link>
-          </UserCardName>
-          <UserCardImage>
+          </div>
+          <div>
             <img src={user.photo_url} width='100px' height='100px' />
-          </UserCardImage>
-        </UserCard>
+          </div>
+        </div>
       )
     })
 
     return (
       <div>
-        <UserHeader>
+        <div className='userHead'>
           User Index
-        </UserHeader>
+        </div>
         <div className="button">
           <button onClick={this.toggleShowNewForm}>Create New</button>
           {this.state.showNewForm ? <NewUserForm fetchUsers={this.fetchUsers} /> : null}
         </div>
-        <div>
+        <div className = 'contentList'>
           {usersList}
         </div>
       </div>

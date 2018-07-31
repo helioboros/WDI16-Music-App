@@ -1,20 +1,7 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
-import styled from 'styled-components'
 import NewSongForm from './NewSongForm'
-
-const AllBoxes = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    color: cornflowerblue;
-    align-items: space-between;
-    justify-content: space-between;
-`
-const Box = styled.div`
-    width: 20vw;
-    height: 20vh;
-`
 
 class SoloUser extends Component {
     state = {
@@ -69,7 +56,6 @@ class SoloUser extends Component {
             this.props.history.push(`/users/${userId}/songs/${res.data._id}`)
         })
     }
-
     deleteSong = async (songId) => {
         try {
             const userId = this.props.match.params.id
@@ -81,18 +67,18 @@ class SoloUser extends Component {
     }
 
     render() {
+
         const songsList = this.state.songs.map((song) => {
             return (
-                <div className='card'>
+                <div className='musicCard'>
                     <h4>{song.title}</h4>
                     <ReactPlayer
                         className='react-player'
                         url={song.song_url}
                         width='50%'
                         height='50%' />
-                    <button onClick={() => this.deleteSong()}>Delete</button>
                     <div className="button" onClick={() => this.deleteSong(song.id)}>
-                        <button>X</button>
+                        <button>Delete</button>
                     </div>
                 </div>
             )
@@ -100,7 +86,7 @@ class SoloUser extends Component {
 
         return (
             <div>
-                <div className = 'header'>
+                <div className = 'userHead'>
                     <h1>{this.state.user.name}</h1>
                     <img width={200} src={this.state.user.photo_url} alt={this.state.user.name} />
                 </div>

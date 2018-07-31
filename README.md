@@ -1,24 +1,25 @@
-# README
+# WDI Project 4 - Music App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an app designed to let you share music.
 
-Things you may want to cover:
+Heroku: http://wdi16-musicapp.herokuapp.com/
 
-* Ruby version
+Trello: https://trello.com/b/EpTsSf1C/wdi-project-4
 
-* System dependencies
+## Process of Creating
 
-* Configuration
+This was my original plan for Project 4. However, upon hearing that we needed an external API for the project, I attempted to create a library app.
 
-* Database creation
+Quite honestly, I found myself way in over my head, trying to make something that I didn't have the skill to pull off in a week. After spending most of my project time working on that, I fell back on this project.
 
-* Database initialization
+My original thought was, 'what if there was a website on which you could upload your music', akin to Soundcloud. Due to the cost of hosting mp3 and m4a files on external sites, I decided to use something called react-player, an add-on that lets you paste in youtube and soundcloud links instead.
 
-* How to run the test suite
+Due to having work over the weekend, an interview during class, and household responsibilities, time crunch was a major issue, and there are still bugs to be patched out and styling to do.
 
-* Services (job queues, cache servers, search engines, etc.)
+Given more time, I would want to hunt down and extinguish those bugs, fix the styling, and add an actual authentication process, as well as a favorite songs model.
 
-* Deployment instructions
+### Planning Process
 
-* ...
+![data planning](link)
+
+![wireframe](link)

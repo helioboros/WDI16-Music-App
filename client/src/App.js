@@ -13,7 +13,7 @@ injectGlobal`
       color: #F9DBBD;
     }
     .header {
-      display: flex;
+      display: flex-column;
       justify-content: space-around;
       margin: 10 auto;
     }
@@ -22,20 +22,41 @@ injectGlobal`
       justify-content: flex-end;
       margin: .5vw;
       button {
-          background: #E84855;
-          color: #FFFD82;
+          background: #DA627D;
+          color: #450920;
       }
     }
-    .component {
-      display: flex;
-      flex-direction: column;
-      margin: 1px;
+    .contentList{
+        display: flex;
+        flex-direction: row-wrap;
+        flex-wrap: wrap;
+        align-items: space-between;
+        justify-content: space-between;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        margin: 1px;
+        padding: 3px;
+        border: 2px solid #FFA5AB;
+    }
+    .musicCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 20vw;
+        height: 20vh;
     }
     .newForm {
         display: flex;
         flex-direction: column;
         background: #FFA5AB;
         color: #A53860;
+    }
+    .react-player {
+        width: 15vw;
+        height: 15vh;
     }
   }
 `
@@ -47,9 +68,8 @@ class App extends Component {
                 <div className="App">
                     <div className='header'>
                         <h1>Music App</h1>
-                        <div classname='navbar'>
+                        <div className='navbar'>
                             <Link to="/">Home</Link>
-                            <Link to="/users">Users</Link>
                         </div>
                     </div>
 
