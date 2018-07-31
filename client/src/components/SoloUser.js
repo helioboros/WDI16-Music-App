@@ -26,22 +26,9 @@ class SoloUser extends Component {
             console.error(error)
         }
     }
-    // fuck man idk
-    // createSong = () => {
-    //     try {
-    //         const userId = this.props.match.params.id
-    //         await axios.post(`/api/users/${userId}/songs`)
-    //         await this.fetchUserAndSongs()
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
     toggleShowNewForm = () => {
         this.setState({ showNewForm: !this.state.showNewForm })
     }
-    // toggleEditUserForm = () => {
-    //     this.setState({ editUserForm: !this.state.editUserForm })
-    // }
     handleChange = (event) => {
         const inputName = event.target.name
         const inputValue = event.target.value
@@ -90,10 +77,6 @@ class SoloUser extends Component {
                     <h1>{this.state.user.name}</h1>
                     <img width={200} src={this.state.user.photo_url} alt={this.state.user.name} />
                 </div>
-                {/* <div className="button">
-                    <button onClick={this.toggleEditUserForm}>Edit User</button>
-                    {this.state.editUserForm ? <EditUser /> : null}
-                </div> */}
                 <div className="button">
                     <button onClick={this.toggleShowNewForm}>Add New Song</button>
                     {this.state.showNewForm ? <NewSongForm fetchUserAndSongs={this.fetchUserAndSongs} /> : null}
