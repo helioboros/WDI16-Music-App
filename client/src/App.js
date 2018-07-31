@@ -1,25 +1,16 @@
-import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import UserList from "./components/UserList";
 import SoloUser from "./components/SoloUser";
-import "./App.css";
+import { injectGlobal } from 'styled-components'
 
 injectGlobal`
   html {
-    background: #FFFD82;
+    background: #450920;
     font-size: 2vw;
-    color: #FF9B71;
+    color: #FFA5AB;
     a {
-      color: #E84855;
-    }
-    .column {
-      display: flex;
-      max-width: 60vw;
-      flex-direction: column;
-      align-items: space-around;
-      justify-content: space-around;
-      padding: 1vw;
-      margin: 1vw;
+      color: #F9DBBD;
     }
     .header {
       display: flex;
@@ -43,6 +34,8 @@ injectGlobal`
     .newForm {
         display: flex;
         flex-direction: column;
+        background: #FFA5AB;
+        color: #A53860;
     }
   }
 `
@@ -52,16 +45,16 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-
-                    <div>
+                    <div className='header'>
                         <h1>Music App</h1>
-                        <div>
-                            <div><Link to="/">Home</Link></div>
+                        <div classname='navbar'>
+                            <Link to="/">Home</Link>
+                            <Link to="/users">Users</Link>
                         </div>
                     </div>
 
-                    <Route exact path="/" component={UserList}/>
-                    <Route path="/users/:id" component={SoloUser}/>
+                    <Route exact path="/" component={UserList} />
+                    <Route path="/users/:id" component={SoloUser} />
 
                 </div>
             </Router>
