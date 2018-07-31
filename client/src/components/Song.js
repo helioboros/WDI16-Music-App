@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 
 const Song = (props) => {
     return (
+        <div className='card'>
         <div className='player-wrapper'>
             <h4>{song.title}</h4>
             <ReactPlayer
@@ -11,6 +12,7 @@ const Song = (props) => {
                 width='50%'
                 height='50%' />
                 <button onClick={() =>props.deleteSong(props.id)}>Delete</button>
+        </div>
         </div>
     )
 }

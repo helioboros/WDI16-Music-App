@@ -13,7 +13,6 @@ const SongList = (props) => {
 
     return (
         <div>
-            <h1>Songs</h1>
             {props.songs}
         </div>
     )

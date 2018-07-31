@@ -63,14 +63,14 @@ class UserList extends Component {
 
     return (
       <div>
-        <div className='userHead'>
+        <div className='header'>
           User Index
+          <div className="button">
+            <button onClick={this.toggleShowNewForm}>Add User</button>
+            {this.state.showNewForm ? <NewUserForm fetchUsers={this.fetchUsers} /> : null}
+          </div>
         </div>
-        <div className="button">
-          <button onClick={this.toggleShowNewForm}>Create New</button>
-          {this.state.showNewForm ? <NewUserForm fetchUsers={this.fetchUsers} /> : null}
-        </div>
-        <div className = 'contentList'>
+        <div className='contentList'>
           {usersList}
         </div>
       </div>

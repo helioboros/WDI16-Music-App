@@ -14,9 +14,16 @@ injectGlobal`
     }
     .header {
       display: flex-column;
-      justify-content: space-around;
+      justify-content: flex-center;
+      align-items: flex-center;
       margin: 10 auto;
     }
+    .userHead {
+        display: flex-column;
+        justify-content: center;
+        align-items: center;
+        margin: 10 auto;
+      }
     .button {
       display: flex;
       justify-content: flex-end;
@@ -30,8 +37,8 @@ injectGlobal`
         display: flex;
         flex-direction: row-wrap;
         flex-wrap: wrap;
-        align-items: space-between;
-        justify-content: space-between;
+        align-items: space-around;
+        justify-content: space-around;
     }
     .card {
         display: flex;
@@ -58,6 +65,13 @@ injectGlobal`
         width: 15vw;
         height: 15vh;
     }
+    .player-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin: 1px;
+        padding: 3px;
+        border: 2px solid #FFA5AB;
+    }
   }
 `
 
@@ -78,7 +92,7 @@ class App extends Component {
 
                 </div>
             </Router>
-        );
+        )
     }
 }
 
