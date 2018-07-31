@@ -4,6 +4,49 @@ import UserList from "./components/UserList";
 import SoloUser from "./components/SoloUser";
 import "./App.css";
 
+injectGlobal`
+  html {
+    background: #FFFD82;
+    font-size: 2vw;
+    color: #FF9B71;
+    a {
+      color: #E84855;
+    }
+    .column {
+      display: flex;
+      max-width: 60vw;
+      flex-direction: column;
+      align-items: space-around;
+      justify-content: space-around;
+      padding: 1vw;
+      margin: 1vw;
+    }
+    .header {
+      display: flex;
+      justify-content: space-around;
+      margin: 10 auto;
+    }
+    .button {
+      display: flex;
+      justify-content: flex-end;
+      margin: .5vw;
+      button {
+          background: #E84855;
+          color: #FFFD82;
+      }
+    }
+    .component {
+      display: flex;
+      flex-direction: column;
+      margin: 1px;
+    }
+    .newForm {
+        display: flex;
+        flex-direction: column;
+    }
+  }
+`
+
 class App extends Component {
     render() {
         return (
@@ -11,7 +54,7 @@ class App extends Component {
                 <div className="App">
 
                     <div>
-                        <h1>horgh</h1>
+                        <h1>Music App</h1>
                         <div>
                             <div><Link to="/">Home</Link></div>
                         </div>

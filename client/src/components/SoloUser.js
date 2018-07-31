@@ -28,11 +28,9 @@ class SoloUser extends Component {
 
     fetchUserAndSongs = async () => {
         const userId = this.props.match.params.id
-
         try {
             let userResponse = await axios.get(`/api/users/${userId}`)
             let songsResponse = await axios.get(`/api/users/${userId}/songs`)
-
             this.setState({
                 user: userResponse.data,
                 songs: songsResponse.data
@@ -54,11 +52,14 @@ class SoloUser extends Component {
     toggleShowNewForm = () => {
         this.setState({ showNewForm: !this.state.showNewForm })
     }
+    // toggleEditUserForm = () => {
+    //     this.setState({ editUserForm: !this.state.editUserForm })
+    // }
     handleChange = (event) => {
         const inputName = event.target.name
-        const songInput = event.target.value
+        const inputValue = event.target.value
         this.setState({
-            [inputName]: songInput
+            [inputName]: inputValue
         })
     }
     handleSubmit = (event) => {
@@ -101,8 +102,12 @@ class SoloUser extends Component {
             <div>
                 <h1>{this.state.user.name}</h1>
                 <img width={200} src={this.state.user.photo_url} alt={this.state.user.name} />
+                {/* <div className="button">
+                    <button onClick={this.toggleEditUserForm}>Edit User</button>
+                    {this.state.editUserForm ? <EditUser /> : null}
+                </div> */}
                 <div className="button">
-                    <button onClick={this.toggleShowNewForm}>Create New</button>
+                    <button onClick={this.toggleShowNewForm}>Add New Song</button>
                     {this.state.showNewForm ? <NewSongForm fetchUserAndSongs={this.fetchUserAndSongs} /> : null}
                 </div>
                 <p>{this.state.user.bio}</p>
