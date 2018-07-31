@@ -20,6 +20,6 @@ Given more time, I would want to hunt down and extinguish those bugs, fix the st
 
 ### Planning Process
 
-![data planning](link)
+![data planning](https://78.media.tumblr.com/0e6872467badca825e70001bf9d41cf1/tumblr_pcqrcyP9xa1vzne5to1_400.png)
 
-![wireframe](link)
+![wireframe](https://78.media.tumblr.com/2fed0d8f1b1525635565fd2636480cb4/tumblr_pcqrcyP9xa1vzne5to2_540.png)
